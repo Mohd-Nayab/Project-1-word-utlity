@@ -16,18 +16,28 @@ const Textform = (props) => {
   const handleClear = () => {
     setText("");
   };
+  const handleCopy = () => {
+    let copyText = document.getElementById("mybox");
+    copyText.select();
+    navigator.clipboard.writeText(copyText.value);
+    alert("Copied the text: " + copyText.value);
+  };
 
   return (
     <>
       <div className="container mt-3">
         <div className="mb-3">
-          <label htmlFor="exampleFormControlTextarea1" className="form-label">
+          <label
+            htmlFor="exampleFormControlTextarea1"
+            className="form-label"
+            style={{ color: props.mode === "dark" ? "white" : "black" }}
+          >
             <h3>{props.formtitle}</h3>
           </label>
           <textarea
             value={text}
             className="form-control"
-            id="exampleFormControlTextarea1"
+            id="mybox"
             rows="8"
             onChange={handleOnChange}
           ></textarea>
@@ -40,6 +50,9 @@ const Textform = (props) => {
         </button>
         <button className="btn btn-warning" onClick={handleClear}>
           Click to Clear
+        </button>
+        <button className="btn btn-danger mx-3" onClick={handleCopy}>
+          Click to Copy
         </button>
       </div>
       <div className="container my-5">
