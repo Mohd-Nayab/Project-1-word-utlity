@@ -25,13 +25,12 @@ const Textform = (props) => {
 
   return (
     <>
-      <div className="container mt-3">
+      <div
+        className="container mt-3"
+        style={{ color: props.mode === "dark" ? "white" : "black" }}
+      >
         <div className="mb-3">
-          <label
-            htmlFor="exampleFormControlTextarea1"
-            className="form-label"
-            style={{ color: props.mode === "dark" ? "white" : "black" }}
-          >
+          <label htmlFor="exampleFormControlTextarea1" className="form-label">
             <h3>{props.formtitle}</h3>
           </label>
           <textarea
@@ -55,7 +54,10 @@ const Textform = (props) => {
           Click to Copy
         </button>
       </div>
-      <div className="container my-5">
+      <div
+        className="container my-5"
+        style={{ color: props.mode === "dark" ? "blue" : "red" }}
+      >
         <h2>Your Text Summary</h2>
         <p>
           {text.split(" ").length} words and {text.length} Characters.

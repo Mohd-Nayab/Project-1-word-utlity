@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import React, { useState } from "react";
 import TextForm from "./components/TextForm";
 // import About from "./components/About";
+import Alert from "./components/Alert";
 
 const App = () => {
   const [mode, setMode] = useState("light");
@@ -15,6 +16,13 @@ const App = () => {
       document.body.style.backgroundColor = "white";
     }
   };
+  const [alert, setAlert] = useState(null);
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type,
+    });
+  };
 
   return (
     <div>
@@ -24,6 +32,7 @@ const App = () => {
         mode={mode}
         toggleMode={toggleMode}
       />
+      <Alert alert={alert} />
       <TextForm formtitle="Enter Your Text" />
       {/* <About /> */}
     </div>
